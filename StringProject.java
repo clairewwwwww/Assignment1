@@ -12,27 +12,27 @@ public class StringProject
     {
 
     }
-    public void writeFile(String inputContent) throws IOException
+    public void writeFile(String inputContent) throws IOException //inputContent = what the user want to write to the file
     {
-        PrintWriter pw = new PrintWriter("This is the output file");
-        pw.print(inputContent);
+        PrintWriter pw = new PrintWriter("This is the output file name"); //the name of the output file
+        pw.print(inputContent); //print the content 
         pw.close();
             
     }
     public String readFile(String fileName) throws IOException 
 	{
-		 BufferedReader br = new BufferedReader(new FileReader (fileName));
+		 BufferedReader br = new BufferedReader(new FileReader (fileName)); //the name of the file that want to read
 	        try
 	        {
 	            String string = "";
 	            while(br.ready())
 	            {
-	                string += (char)br.read();
+	                string += (char)br.read(); //read the char in the file, store to a string
 	            }
 	            br.close();
-	            return string;
+	            return string; //return the string
 	        }
-	        catch(FileNotFoundException e)
+	        catch(FileNotFoundException e) //if the file name is not found
 			{
 				return "File not found, whoops!";
 			}
