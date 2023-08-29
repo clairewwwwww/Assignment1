@@ -5,7 +5,7 @@ public class StringProjectTester
     public static void main(String[] args) throws IOException 
 	{
 		StringProject tester = new StringProject();
-		tester.writeFile("Yeah");
-        tester.readFile("Yeah");
+		//tester.writeFile("Yeah");
+        System.out.println(tester.readFile("ReadThisFile"));
 	}
 }

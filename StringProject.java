@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
@@ -22,7 +23,8 @@ public class StringProject
             File file = new File(fileName);
 
             // If file doesn't exists, then create it
-            if (!file.exists()) {
+            if (!file.exists()) 
+            {
                 file.createNewFile();
             }
 
@@ -35,29 +37,27 @@ public class StringProject
             // Close connection
             bw.close();
         }
-        catch(Exception e){
+        catch(Exception e)
+        {
             System.out.println(e);
         }
     }
-    public String readFile(String file) throws IOException 
-    {
-        BufferedReader reader = new BufferedReader(new FileReader (file));
-        String line = null;
-        StringBuilder stringBuilder = new StringBuilder();
-        String ls = System.getProperty("line.separator");
-
-    try 
-    {
-        while((line = reader.readLine()) != null) {
-            stringBuilder.append(line);
-            stringBuilder.append(ls);
-        }
-
-        return stringBuilder.toString();
-    } 
-    finally 
-    {
-        reader.close();
-    }
-    }
+    public String readFile(String fileName) throws IOException 
+	{
+		 BufferedReader br = new BufferedReader(new FileReader (fileName));
+	        try
+	        {
+	            String string = "";
+	            while(br.ready())
+	            {
+	                string += (char)br.read();
+	            }
+	            br.close();
+	            return string;
+	        }
+	        catch(FileNotFoundException e)
+			{
+				return "File not found, whoops!";
+			}
+	 }
 }
