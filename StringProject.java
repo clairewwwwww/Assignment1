@@ -9,13 +9,17 @@ import java.io.BufferedWriter;
 
 public class StringProject
 {
+    public StringProject()
+    {
 
-    public static void main(String[] args) {
+    }
+    public void writeFile(String inputName) 
+    {
         try{
             // Create new file
             String content = "This is the content to write into create file";
-            String path="hello.txt";
-            File file = new File(path);
+            String fileName = inputName + ".txt";
+            File file = new File(fileName);
 
             // If file doesn't exists, then create it
             if (!file.exists()) {
